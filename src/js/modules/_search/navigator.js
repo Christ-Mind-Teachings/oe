@@ -1,16 +1,12 @@
 /*
   search results query navigator
 */
-
 import scroll from "scroll-into-view";
-import store from "store";
+import {storeGet} from "www/modules/_util/store";
 import notify from "toastr";
 const page = require("../_config/key");
 
-//const queryResultName = "query-result-raj";
-const queryResultName = "search.acim.result";
 const url_prefix = "/t/acimoe";
-
 const SCROLL_INTERVAL = 250;
 
 function scrollComplete(message, type) {
@@ -210,7 +206,7 @@ function findPositions(pid, pageKey, flat) {
 }
 
 function initControls(pid) {
-  let lastSearch = store.get(queryResultName);
+  let lastSearch = storeGet("srchResults");
 
   if (!lastSearch) {
     notify.warning("There are no search results to show.");

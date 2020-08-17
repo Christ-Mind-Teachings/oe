@@ -1,4 +1,5 @@
 /* eslint no-console: off */
+import {storeInit} from "www/modules/_util/store";
 
 //common modules
 import auth from "www/modules/_user/netlify";
@@ -16,19 +17,20 @@ import {setLanguage} from "www/modules/_language/lang";
 import constants from "./constants";
 
 $(document).ready(() => {
+  storeInit(constants);
   initStickyMenu();
-  setLanguage(constants);
 
+  setLanguage(constants);
   bookmarkStart("page");
   search.initialize();
   auth.initialize();
+  fb.initialize();
   toc.initialize("page");
   about.initialize();
 
   //support for quote display and sharing
-  fb.initialize();
   initQuoteDisplay("#show-quote-button", constants);
-
   initAnimation();
+
 });
 

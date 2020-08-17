@@ -1,11 +1,10 @@
 
 import {getPageInfo} from "../_config/config";
 import uniq from "lodash/uniq";
-import store from "store";
+import {storeGet, storeSet} from "www/modules/_util/store";
 
 //this needs to use require because it is also used by a node app and node doesn't support import
 const keyInfo = require("../_config/key");
-const queryResultName = "search.acim.result";
 
 function getUnitName(pageInfo, unitInfo) {
   return pageInfo[unitInfo.pageKey].title;
@@ -165,7 +164,7 @@ function saveQueryResults(queryString, matchCount, titleArray, pageInfo, data, o
     }
   }
 
-  store.set(queryResultName, {
+  storeSet("srchResults", {
     query: queryString, 
     count: matchCount, 
     titleArray: titleArray, 
@@ -177,7 +176,7 @@ function saveQueryResults(queryString, matchCount, titleArray, pageInfo, data, o
 
 //show saved query result in modal
 export function showSavedQuery() {
-  const queryResult = store.get(queryResultName);
+  const queryResult = storeGet("srchResults");
 
   if (!queryResult) {
     return;
