@@ -183,34 +183,34 @@ function textnp($el) {
   //set the next control on the page
   //disable 'next-page'
   if (nextChapter === -1) {
-    $("#next-page-menu-item").addClass("disabled");
+    $("#toc-next-page").addClass("disabled");
   }
   else {
     //incase the control has been disabled
-    $("#next-page-menu-item").removeClass("disabled");
+    $("#toc-next-page").removeClass("disabled");
 
     let nextHref = $(`#c${nextChapter} a[data-secid="${nextSection}"]`).attr("href");
     let nextText = $(`#c${nextChapter} a[data-secid="${nextSection}"]`).text();
 
     //set next tooltip and href
-    $("#next-page-menu-item > span").attr("data-tooltip", `${nextText}`);
-    $("#next-page-menu-item").attr("href", `${nextHref}`);
+    $("#toc-next-page > span").attr("data-tooltip", `${nextText}`);
+    $("#toc-next-page").attr("href", `${nextHref}`);
   }
 
   //disable 'prev-page'
   if (prevChapter === -1) {
-    $("#previous-page-menu-item").addClass("disabled");
+    $("#toc-previous-page").addClass("disabled");
   }
   else {
     //incase the control has been disabled
-    $("#previous-page-menu-item").removeClass("disabled");
+    $("#toc-previous-page").removeClass("disabled");
 
     let prevHref = $(`#c${prevChapter} a[data-secid="${prevSection}"]`).attr("href");
     let prevText = $(`#c${prevChapter} a[data-secid="${prevSection}"]`).text();
 
     //set prev tooltip and href
-    $("#previous-page-menu-item > span").attr("data-tooltip", `${prevText}`);
-    $("#previous-page-menu-item").attr("href", `${prevHref}`);
+    $("#toc-previous-page > span").attr("data-tooltip", `${prevText}`);
+    $("#toc-previous-page").attr("href", `${prevHref}`);
   }
 }
 
@@ -225,19 +225,19 @@ function workbookNextPrev($el) {
 
   //disable prev control
   if (lessonId === 1) {
-    $("#previous-page-menu-item").addClass("disabled");
+    $("#toc-previous-page").addClass("disabled");
   }
   else {
-    $("#previous-page-menu-item").removeClass("disabled");
+    $("#toc-previous-page").removeClass("disabled");
     prevId = lessonId - 1;
   }
 
   //disable next control
   if (lessonId === LAST_ID) {
-    $("#next-page-menu-item").addClass("disabled");
+    $("#toc-next-page").addClass("disabled");
   }
   else {
-    $("#next-page-menu-item").removeClass("disabled");
+    $("#toc-next-page").removeClass("disabled");
     nextId = lessonId + 1;
   }
 
@@ -246,8 +246,8 @@ function workbookNextPrev($el) {
     text = $(`a[data-lid="${prevId}"]`).text();
 
     //set prev tooltip and href
-    $("#previous-page-menu-item > span").attr("data-tooltip", `${text}`);
-    $("#previous-page-menu-item").attr("href", `${href}`);
+    $("#toc-previous-page > span").attr("data-tooltip", `${text}`);
+    $("#toc-previous-page").attr("href", `${href}`);
   }
 
   if (nextId > -1) {
@@ -255,8 +255,8 @@ function workbookNextPrev($el) {
     text = $(`a[data-lid="${nextId}"]`).text();
 
     //set prev tooltip and href
-    $("#next-page-menu-item > span").attr("data-tooltip", `${text}`);
-    $("#next-page-menu-item").attr("href", `${href}`);
+    $("#toc-next-page > span").attr("data-tooltip", `${text}`);
+    $("#toc-next-page").attr("href", `${href}`);
   }
 }
 
@@ -271,19 +271,19 @@ function manualNextPrev($el, unitMax) {
 
   //disable prev control
   if (lessonId === 1) {
-    $("#previous-page-menu-item").addClass("disabled");
+    $("#toc-previous-page").addClass("disabled");
   }
   else {
-    $("#previous-page-menu-item").removeClass("disabled");
+    $("#toc-previous-page").removeClass("disabled");
     prevId = lessonId - 1;
   }
 
   //disable next control
   if (lessonId === LAST_ID) {
-    $("#next-page-menu-item").addClass("disabled");
+    $("#toc-next-page").addClass("disabled");
   }
   else {
-    $("#next-page-menu-item").removeClass("disabled");
+    $("#toc-next-page").removeClass("disabled");
     nextId = lessonId + 1;
   }
 
@@ -292,8 +292,8 @@ function manualNextPrev($el, unitMax) {
     text = $(`a[data-lid="${prevId}"]`).text();
 
     //set prev tooltip and href
-    $("#previous-page-menu-item > span").attr("data-tooltip", `${text}`);
-    $("#previous-page-menu-item").attr("href", `${href}`);
+    $("#toc-previous-page > span").attr("data-tooltip", `${text}`);
+    $("#toc-previous-page").attr("href", `${href}`);
   }
 
   if (nextId > -1) {
@@ -301,8 +301,8 @@ function manualNextPrev($el, unitMax) {
     text = $(`a[data-lid="${nextId}"]`).text();
 
     //set prev tooltip and href
-    $("#next-page-menu-item > span").attr("data-tooltip", `${text}`);
-    $("#next-page-menu-item").attr("href", `${href}`);
+    $("#toc-next-page > span").attr("data-tooltip", `${text}`);
+    $("#toc-next-page").attr("href", `${href}`);
   }
 }
 

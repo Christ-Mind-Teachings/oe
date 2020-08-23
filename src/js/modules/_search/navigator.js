@@ -2,8 +2,8 @@
   search results query navigator
 */
 import scroll from "scroll-into-view";
-import {storeGet} from "www/modules/_util/store";
 import notify from "toastr";
+import {storeGet} from "www/modules/_util/store";
 const page = require("../_config/key");
 
 const url_prefix = "/t/acimoe";

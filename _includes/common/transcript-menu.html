@@ -1,45 +1,45 @@
 <!-- _includes/common/transcript-menu.html -->
 <div class="ui borderless main menu">
   <div id="transcript-menu" class="ui text container">
-    <a id="bookmark-dropdown-menu" href="#" class="ui dropdown item">
+    <a id="bookmark-dropdown-menu" href="#" class="requires-signin hide ui dropdown item">
       <span data-xposition="left center" data-xtooltip="Show/Set Bookmarks">
-        <i class="red bookmark icon"></i>
+        <i class="icons">
+          <i class="bookmark-icon green bookmark icon"></i>
+          <i class="bookmark-corner-icon hide corner close icon"></i>
+        </i>
       </span>
       <div class="menu">
         <div id="bookmark-modal-open" class="bookmark-modal-open item">Show Bookmarks</div>
         <div id="bookmark-toggle-disable-selection" class="toggle-bookmark-selection item">Disable Bookmark Creation</div>
         <div id="bookmark-toggle-highlight" class="toggle-bookmark-highlight item">Hide Highlighted Text</div>
-        <div class="divider"></div>
-        <div id="current-topic-filter" data-filter="none" class="header">Topic Filter: None</div>
-        <div id="page-topics-modal-open" class="page-topics-modal-open item">Filter Bookmarks</div>
-        <!--
-        <div id="topic-menu-item" class="item">
-          <i class="dropdown icon"></i>
-          Page Topic List
-          <div id="topic-menu-select" class="menu transition hidden">
-          </div>
+        <div id="bookmark-filter-wrapper" class="hide">
+          <div class="divider"></div>
+          <div id="current-topic-filter" data-filter="none" class="item header">Topic Filter: None</div>
+          <div id="page-topics-modal-open" class="page-topics-modal-open item">Filter Bookmarks</div>
         </div>
-        -->
       </div>
     </a>
-    <a href="#" id="search-modal-open" class="item search-modal-open">
+    <a id="search-modal-open" href="#" id="search-modal-open" class="item search-modal-open">
       <span data-position="bottom center" data-tooltip="Search {{site.title}}">
         <i class="search icon"></i>
       </span>
     </a>
-    <a class="audio-player-toggle hide item" >
+    <a id="audio-player-menu-option" class="audio-player-toggle hide item" >
       <span data-position="bottom center" data-tooltip="Play Audio">
         <i class="volume up icon"></i></a>
       </span>
     </a>
     {% unless page.pnumToggle == false %}
-    <a href="#" class="toggle-paragraph-markers item">
+    <a id="pnum-toggle-menu-option" href="#" class="toggle-paragraph-markers item">
       <span data-position="bottom center" data-tooltip="Toggle Display of Paragraph Numbers">
-        <i class="paragraph icon"></i>
+        <i class="icons">
+          <i class="paragraph icon"></i>
+          <i class="paragraph-corner-icon hide corner close icon"></i>
+        </i>
       </span>
     </a>
     {% endunless %}
-    <a href="#masthead-title" class="top-of-page item">
+    <a id="jump-to-top-menu-option" href="#masthead-title" class="top-of-page item">
       <span data-position="bottom center" data-tooltip="Top of Page">
         <i class="level up icon"></i>
       </span>
@@ -50,12 +50,12 @@
         <i class="align justify icon"></i>
       </span>
     </a>
-    <a id="previous-page-menu-item" href="#" class="item">
+    <a id="toc-previous-page" href="#" class="item">
       <span data-position="bottom center" data-tooltip="Previous Page">
         <i class="arrow circle left icon"></i>
       </span>
     </a>
-    <a id="next-page-menu-item" href="#" class="item">
+    <a id="toc-next-page" href="#" class="item">
       <span data-position="bottom center" data-tooltip="Next Page">
         <i class="arrow circle right icon"></i>
       </span>
@@ -72,14 +72,23 @@
         <div class="view-documentation item">Watch Video Instruction</div>
         <div class="copy-page-key item">Copy Page Key</div>
         <div class="contact-me item">Get In Touch</div>
-        <div class="divider"></div>
-        <div class="hide profile-management item">Manage Email List</div>
-        <div class="hide topic-management item">Manage Topics</div></div>
+      </div>
     </a>
-    <a href="#" class="login-menu-option ui right floated item">
+    <a id="login-guest-menu-option" href="#" class="login-menu-option-guest ui right floated item">
       <span data-position="bottom center" data-tooltip="Sign In">
         <i class="red sign in icon"></i>
       </span>
+    </a>
+    <a id="login-account-menu-option" href="#" class="login-menu-option-account hide dropdown ui right floated item">
+      <span data-position="left center" data-tooltip="Sign Out">
+        <i class="green sign out icon"></i>
+      </span>
+      <div class="menu">
+        <div class="account-signout-option item">Sign Out</div>
+        <div class="divider"></div>
+        <div class="profile-management item">Manage Email List</div>
+        <div class="topic-management item">Manage Topics</div>
+      </div>
     </a>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import {fetchConfiguration} from "www/modules/_util/cmi";
+import {storeSet, storeGet} from "www/modules/_util/store";
 import axios from "axios";
 import {status} from "./status";
 import { getIndexFromLesson } from "./wbkey";
@@ -269,7 +270,7 @@ export function getPageInfo(pageKey, data = false) {
           let flat = [];
           let unit;
           let chapter;
-          let flat_store_id = `search.acimoe.${decodedKey.bookId}.flat`;
+          let flat_store_id = `srch${decodedKey.bookId}flat`;
 
           switch(decodedKey.bookId) {
             case "manual":
@@ -277,10 +278,10 @@ export function getPageInfo(pageKey, data = false) {
               info.url = `/acimoe/${decodedKey.bookId}${data.contents[decodedKey.uid - 1].url}`;
               break;
             case "workbook":
-              flat = store.get(flat_store_id);
+              flat = storeGet(flat_store_id);
               if (!flat) {
                 flat = flatten(data);
-                store.set(flat_store_id, flat);
+                storeSet(flat_store_id, flat);
               }
               unit = flat[decodedKey.uid - 1];
 
@@ -288,10 +289,10 @@ export function getPageInfo(pageKey, data = false) {
               info.url = `/acimoe/${decodedKey.bookId}/${unit.url}`;
               break;
             case "text":
-              flat = store.get(flat_store_id);
+              flat = storeGet(flat_store_id);
               if (!flat) {
                 flat = flatten(data);
-                store.set(flat_store_id, flat);
+                storeSet(flat_store_id, flat);
               }
               unit = flat[decodedKey.uid - 1];
               chapter = unit.url.substr(4,2);
