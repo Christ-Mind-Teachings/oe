@@ -36,7 +36,7 @@ published by Course in Miracles Society [CIMS], is that early edition.
   <div class="ui equal width grid source-acq-section">
     <div class="five wide column">
       <div class="ui card">
-        <a href="#" data-book="acq" class="toc-modal-open image" data-tooltip="Click to view the Getting Acquainted table of contents." data-position="top center">
+        <a id="book-acq" href="#" data-book="acq" class="toc-modal-open image" data-tooltip="Click to view the Getting Acquainted table of contents." data-position="top center">
           <img src="/t/acimoe/public/img/acim/acq-big.jpg">
         </a>
         <div class="content">
@@ -78,7 +78,7 @@ published by Course in Miracles Society [CIMS], is that early edition.
   </div>
   <div class="ui three cards">
     <div class="card">
-      <a href="#" data-book="text" class="toc-modal-open image" data-tooltip="Click to view the ACIM Text table of contents." data-position="top center">
+      <a id="book-text" href="#" data-book="text" class="toc-modal-open image" data-tooltip="Click to view the ACIM Text table of contents." data-position="top center">
         <img src="/t/acimoe/public/img/acim/text.jpg">
       </a>
       <div class="content">
@@ -88,7 +88,7 @@ published by Course in Miracles Society [CIMS], is that early edition.
       </div>
     </div>
     <div class="card">
-      <a href="#" data-book="workbook" class="toc-modal-open image" data-tooltip="Click to view the ACIM Workbook table of contents." data-position="top center">
+      <a id="book-workbook" href="#" data-book="workbook" class="toc-modal-open image" data-tooltip="Click to view the ACIM Workbook table of contents." data-position="top center">
         <img src="/t/acimoe/public/img/acim/workbook.jpg">
       </a>
       <div class="content">
@@ -98,7 +98,7 @@ published by Course in Miracles Society [CIMS], is that early edition.
       </div>
     </div>
     <div class="card">
-      <a href="#" data-book="manual" class="toc-modal-open image" data-tooltip="Click to view the Manual for Teachers table of contents." data-position="top center">
+      <a id="book-manual" href="#" data-book="manual" class="toc-modal-open image" data-tooltip="Click to view the Manual for Teachers table of contents." data-position="top center">
         <img src="/t/acimoe/public/img/acim/manual.jpg">
       </a>
       <div class="content">
