@@ -87,7 +87,6 @@ function getPageKeys(data) {
 export function showSearchResults(data, query) {
   const books = keyInfo.getBooks();
   let pageInfoPromises = [];
-  console.log("processing search results");
 
   //get array of all unique page info - promises
   for (let b = 0; b < books.length; b++) {

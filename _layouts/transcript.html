@@ -5,14 +5,14 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
-  <meta name="description" content="{{description}}">
+  <meta name="description" content="{{site.description}}">
 
   <!-- Site Properties -->
   <title>ACIM:{{page.title}}</title>
 
   {% include common/load-open-graph.html %}
 
-  <link rel="stylesheet" href="/public/css/semantic.css">
+  <link rel="stylesheet" href="/public/css/{{site.semantic}}/semantic.css">
   <link rel="stylesheet" href="/t/acimoe/public/js/vendors~transcript.me-styles.css">
   <link rel="stylesheet" href="/t/acimoe/public/js/me-styles.css">
   <link rel="stylesheet" href="/public/css/toastr.css">
@@ -73,16 +73,19 @@
 
   {% include common/javascript.html %}
 
-  <script src="/public/vendor/jquery/jquery.min.js"></script>
-  <script src="/public/vendor/semantic/semantic.min.js"></script>
-
   {% if jekyll.environment == "production" %}
-    <!-- OE transcript Webpack production -->
+    <!-- OE transcript Webpack production ({{site.semantic}}) -->
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/{{site.semantic}}/semantic.min.js"></script>
+
     <script src="/t/acimoe/public/js/vendors~page~transcript.js"></script>
     <script src="/t/acimoe/public/js/vendors~transcript.js"></script>
     <script src="/t/acimoe/public/js/transcript.js"></script>
   {% else %}
-    <!-- OE transcript Webpack development -->
+    <!-- OE transcript Webpack development ({{site.semantic}})  -->
+    <script src="/public/vendor/jquery/jquery.js"></script>
+    <script src="/public/vendor/{{site.semantic}}/semantic.js"></script>
+
     <script src="/t/acimoe/public/js/vendors~page~transcript.js"></script>
     <script src="/t/acimoe/public/js/vendors~transcript.js"></script>
     <script src="/t/acimoe/public/js/page~transcript.js"></script>

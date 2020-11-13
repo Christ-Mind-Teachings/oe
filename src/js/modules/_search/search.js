@@ -1,11 +1,8 @@
-
-const searchEndpoint = "https://d9lsdwxpfg.execute-api.us-east-1.amazonaws.com/latest/acimoe";
-import axios from "axios";
+import {searchSource} from "www/modules/_ajax/search";
 import { showSavedQuery, showSearchResults } from "./show";
 import {showSearchMatch} from "www/modules/_util/url";
 import { initNavigator } from "./navigator";
 import notify from "toastr";
-import {searchAudit} from "www/modules/_audit/audit";
 
 //search modal
 const uiSearchModal = ".search.ui.modal";
@@ -80,29 +77,28 @@ function displaySearchMessage(msgId, arg1, arg2, arg3) {
 }
 
 //run query
-function search(query) {
+async function search(query) {
   let searchBody = {
+    source: "acimoe",
     query: query,
     width: 30
   };
 
-  axios.post(searchEndpoint, searchBody)
-    .then((response) => {
-      displaySearchMessage(SEARCH_RESULT, "", query, response.data.count);
-      if (response.data.count > 0) {
-        showSearchResults(response.data, searchBody.query);
-      }
-      else {
-        notify.info(`Search for ${query} didn't find any matches`);
-      }
-      searchAudit("ACIMOE", searchBody.query, response.data.count);
-      document.getElementById("search-input-field").focus();
-    })
-    .catch((error) => {
-      console.error("search error: %o", error);
-      displaySearchMessage(SEARCH_ERROR, error.message);
-      searchAudit("ACIMOE", searchBody.query, 0, error.message);
-    });
+  try {
+    let result = await searchSource(searchBody);
+    displaySearchMessage(SEARCH_RESULT, "", `"${result.queryTransformed}"`, result.count);
+    if (result.count > 0) {
+      showSearchResults(result, result.queryTransformed);
+    }
+    else {
+      notify.info(`Search for "${result.queryTransformed}" didn't find any matches`);
+    }
+    document.getElementById("search-input-field").focus();
+  }
+  catch(error) {
+    console.error("search error: %o", error);
+    displaySearchMessage(SEARCH_ERROR, error.message);
+  }
 }
 
 function initTranscriptPage() {

@@ -5,14 +5,14 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
-  <meta name="description" content="{{description}}">
+  <meta name="description" content="{{site.description}}">
 
   <!-- Site Properties -->
   <title>{{page.title}}</title>
 
   {% include common/load-open-graph.html %}
 
-  <link rel="stylesheet" href="/public/css/semantic.css">
+  <link rel="stylesheet" href="/public/css/{{site.semantic}}/semantic.css">
   <link rel="stylesheet" href="/public/css/cmi.css">
   <link rel="stylesheet" href="/public/css/driver.min.css">
   <link rel="stylesheet" href="/t/acimoe/public/css/src.css">
@@ -42,15 +42,17 @@
   </div>
   <div class="fixed" id="netlify-modal"></div>
 
-  <script src="/public/vendor/jquery/jquery.min.js"></script>
-  <script src="/public/vendor/semantic/semantic.min.js"></script>
 
   {% if jekyll.environment == "production" %}
-    <!-- OE page Webpack production -->
+    <!-- OE page Webpack production ({{site.semantic}})  -->
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/{{site.semantic}}/semantic.min.js"></script>
     <script src="/t/acimoe/public/js/vendors~page~transcript.js"></script>
     <script src="/t/acimoe/public/js/page.js"></script>
   {% else %}
-    <!-- OE page Webpack development -->
+    <!-- OE page Webpack development ({{site.semantic}})  -->
+    <script src="/public/vendor/jquery/jquery.js"></script>
+    <script src="/public/vendor/{{site.semantic}}/semantic.js"></script>
     <script src="/t/acimoe/public/js/vendors~page~transcript.js"></script>
     <script src="/t/acimoe/public/js/page~transcript.js"></script>
     <script src="/t/acimoe/public/js/page.js"></script>
