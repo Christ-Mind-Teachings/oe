@@ -36,7 +36,7 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "clipboard": "^2.0.4",
     "dom-anchor-text-quote": "^4.0.2",
     "driver.js": "^0.9.5",
